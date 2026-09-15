@@ -5,12 +5,13 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, StyleSheet, useColorScheme, View, Text, Pressable } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import ObstacleDetector from './specs/NativeObstacleDetector';
+import { useState } from 'react';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -24,14 +25,18 @@ function App() {
 }
 
 function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+  const [ isSupported, setIsSupported ] = useState<boolean>(true)
 
   return (
     <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+      <Text>HELLO WORLD: {isSupported}</Text>
+      <Pressable onPress={() => {
+        const isSupported = ObstacleDetector.isLidarSupported()
+        setIsSupported(isSupported)
+      }}>
+        <Text style={styles.button}>PRESS ME {isSupported ? "TRUE" : "FALSE"}</Text>
+      </Pressable>
+
     </View>
   );
 }
@@ -39,7 +44,12 @@ function AppContent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
+  button: {
+    color: '#000'
+  }
 });
 
 export default App;

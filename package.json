@@ -38,5 +38,10 @@
   },
   "engines": {
     "node": ">= 22.11.0"
+  },
+  "codegenConfig": {
+    "name": "VibroSpec",
+    "type": "modules",
+    "jsSrcsDir": "specs"
   }
 }
