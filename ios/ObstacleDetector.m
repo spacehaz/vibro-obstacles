@@ -14,5 +14,6 @@ RCT_EXTERN_METHOD(startObstacleDetection)
 RCT_EXTERN_METHOD(stopObstacleDetection)
 RCT_EXTERN_METHOD(checkHapticsCapability:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(vibrate:(nonnull NSNumber *)intensity)
 
 @end

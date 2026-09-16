@@ -6,6 +6,7 @@ export interface Spec extends TurboModule {
   startObstacleDetection(): void;
   stopObstacleDetection(): void;
   checkHapticsCapability(): Promise<boolean>;
+  vibrate(intensity: number): void
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>("ObstacleDetector")

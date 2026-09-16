@@ -37,6 +37,16 @@ function AppContent() {
         <Text style={styles.button}>PRESS ME {isSupported ? "TRUE" : "FALSE"}</Text>
       </Pressable>
 
+
+
+
+      <Pressable onPress={() => {
+        ObstacleDetector.vibrate(3)
+        // setIsSupported(isSupported)
+      }}>
+        <Text style={styles.button}>VIBRATE</Text>
+      </Pressable>
+
     </View>
   );
 }
